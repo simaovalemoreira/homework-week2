@@ -32,6 +32,50 @@ end
 
 class MailboxTextFormatter
 
+   attr_reader :mailbox
+
+  def initialize (mailbox)
+  	@mailbox = mailbox
+  end	
+  
+  def format
+    lines = [
+      separator,
+      format_row(["Date", "From", "Subject"]),
+      separator,
+      rows.collect { |row| format_row(row) },
+      separator,
+    ]
+    lines.join("\n")
+  end
+
+  def separator
+    "+#{column_widths.map { |width| '-' * (width + 2) }.join("+")}+"
+  end
+
+  def format_row(row)
+    cells = 0.upto(row.length - 1).map do |ix|
+      row[ix].ljust(column_widths[ix])
+    end
+    "| #{cells.join(" | ")} |"
+  end
+
+  def emails
+    @mailbox.emails
+  end
+
+  def column_widths
+    columns.map { |column| column.max_by { |cell| cell.length }.length }
+  end
+
+  def columns
+    rows.transpose
+  end
+
+  def rows
+    emails.collect { |email| [email.date, email.from, email.subject] }
+  end
+  
 end
 
 emails = [
