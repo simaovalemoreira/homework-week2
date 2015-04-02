@@ -1,3 +1,8 @@
+=begin
+--Simão Vale Moreira--
+--Nº8627 - ESI--
+=end
+
 class Email
 	
   attr_accessor :subject, :date, :from
@@ -26,7 +31,8 @@ class Mailbox
 
   attr_reader :emails, :name
 
-  def initialize(emails)
+  def initialize(name, emails)
+    @name=name
     @emails = emails
   end
   
@@ -36,10 +42,10 @@ class MailboxTextFormatter
 
   attr_reader :mailbox
 
-  def initialize (mailbox)
-  	@mailbox = mailbox
-  end	
-  
+  def initialize(mailbox)
+    @mailbox = mailbox
+  end
+
   def format
     lines = [
       separator,
