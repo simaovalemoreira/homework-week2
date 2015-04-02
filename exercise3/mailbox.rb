@@ -47,6 +47,9 @@ class MailboxTextFormatter
   end
 
   def format
+  	
+  puts "Mailbox: #{@mailbox.name}"
+  
     lines = [
       separator,
       format_row(["Date", "From", "Subject"]),
