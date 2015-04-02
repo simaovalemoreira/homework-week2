@@ -1,4 +1,6 @@
 class Email
+	
+  attr_accessor :subject, :date, :from
   
   def initialize(subject, headers)
     @subject=subject
@@ -22,7 +24,7 @@ end
 
 class Mailbox
 
-	attr_reader :emails, :name
+  attr_reader :emails, :name
   
   def initialize(name, emails)
     @name=name
