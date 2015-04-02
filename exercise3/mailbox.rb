@@ -1,5 +1,7 @@
 class Email
-
+	
+  attr_accessor :subject, :date, :from
+  
   def initialize(subject, headers)
     @subject=subject
     @date=headers[:date]
