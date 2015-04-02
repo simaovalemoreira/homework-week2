@@ -1,3 +1,7 @@
+=begin
+--Simão Vale Moreira--
+--Nº8627 - ESI--
+=end
 class Email
 	
   attr_accessor :subject, :date, :from
