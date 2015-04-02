@@ -24,7 +24,7 @@ end
 
 class Mailbox
 
-	attr_reader :emails, :name
+  attr_reader :emails, :name
 
   def initialize(emails)
     @emails = emails
@@ -34,7 +34,7 @@ end
 
 class MailboxTextFormatter
 
-   attr_reader :mailbox
+  attr_reader :mailbox
 
   def initialize (mailbox)
   	@mailbox = mailbox
